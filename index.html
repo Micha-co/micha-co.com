@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Micha株式会社 | 地域の未来を、ともに創る。</title>
+  <meta name="description" content="Micha株式会社は、地域に根ざした総合プラットフォーム企業として、不動産・飲食・教育・文化交流を連動させ、持続可能な地域のエコシステムを生み出します。" />
+
+  <style>
+    :root{
+      --brand:#E83E8C;     /* メインピンク */
+      --brand2:#FF77B7;    /* サブピンク */
+      --bg:#FFF7FB;        /* うすピンク背景 */
+      --card:#FFFFFF;
+      --text:#1F2937;
+      --muted:#6B7280;
+      --line:#F3D0E2;
+      --shadow: 0 10px 30px rgba(232,62,140,.10);
+      --radius: 18px;
+      --max: 1060px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(255,119,183,.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(232,62,140,.16), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(255,247,251,.72);
+      border-bottom: 1px solid rgba(243,208,226,.7);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height:64px;
+    }
+    .logo{
+      display:flex; gap:10px; align-items:center; font-weight:700;
+      letter-spacing:.2px;
+    }
+    .mark{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: var(--shadow);
+    }
+    .nav a{ text-decoration:none; }
+    .menu{display:flex; gap:16px; align-items:center; color:var(--muted); font-weight:600;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px; border-radius: 999px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: 0 8px 18px rgba(31,41,55,.06);
+      font-weight:700;
+      text-decoration:none;
+      transition:.15s transform ease;
+    }
+    .btn:hover{transform: translateY(-1px);}
+    .btn.primary{
+      border-color: transparent;
+      color:#fff;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+    }
+
+    .hero{padding:72px 0 34px;}
+    .heroGrid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:stretch;
+    }
+    .heroCard{
+      background: rgba(255,255,255,.72);
+      border:1px solid rgba(243,208,226,.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(232,62,140,.08);
+      border:1px solid rgba(232,62,140,.18);
+      color: var(--brand);
+      font-weight:800;
+      letter-spacing:.2px;
+      margin-bottom:14px;
+    }
+    h1{margin:0 0 10px; font-size: 40px; line-height:1.15;}
+    .lead{margin:0 0 18px; color:var(--muted); font-size:16px; line-height:1.8;}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+    .side{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(232,62,140,.12), rgba(255,119,183,.10));
+      border:1px solid rgba(243,208,226,.9);
+      padding:22px;
+      box-shadow: var(--shadow);
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .side h3{margin:0; font-size:16px;}
+    .side p{margin:0; color:var(--muted); line-height:1.8;}
+    .pill{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px; border-radius: 14px;
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(243,208,226,.9);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      margin-top:6px;
+      background: var(--brand);
+      box-shadow: 0 6px 14px rgba(232,62,140,.25);
+    }
+
+    section{padding:40px 0;}
+    .sectionTitle{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:16px;}
+    .sectionTitle h2{margin:0; font-size:26px;}
+    .sectionTitle p{margin:0; color:var(--muted); line-height:1.7;}
+
+    .grid4{
+      display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;
+    }
+    .card{
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(243,208,226,.95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .card h3{margin:0 0 8px; font-size:16px;}
+    .card p{margin:0; color:var(--muted); line-height:1.8; font-size:14px;}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      margin-bottom:10px;
+      padding:7px 10px;
+      border-radius: 999px;
+      background: rgba(255,119,183,.12);
+      border:1px solid rgba(255,119,183,.22);
+      color: var(--brand);
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .two{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    }
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.9;}
+    .stats{
+      display:grid; grid-template-columns: repeat(3,1fr); gap:14px;
+    }
+    .stat{
+      padding:18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(243,208,226,.95);
+      box-shadow: var(--shadow);
+    }
+    .num{font-size:28px; font-weight:900; color:var(--brand); margin:0;}
+    .lbl{margin:6px 0 0; color:var(--muted); line-height:1.7;}
+    footer{
+      border-top: 1px solid rgba(243,208,226,.85);
+      padding:26px 0;
+      color: var(--muted);
+      background: rgba(255,247,251,.65);
+    }
+    .small{font-size:12px; line-height:1.8;}
+
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns: 1fr;}
+      .grid4{grid-template-columns: 1fr 1fr;}
+      .two{grid-template-columns: 1fr;}
+      .stats{grid-template-columns: 1fr;}
+      h1{font-size:34px;}
+      .menu{display:none;}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Micha<span style="color:var(--brand)">株式会社</span></span>
+    </a>
+    <nav class="menu" aria-label="サイト内メニュー">
+      <a href="#vision">目指すもの</a>
+      <a href="#pillars">事業の柱</a>
+      <a href="#results">実績</a>
+      <a href="#partners">パートナー</a>
+      <a href="#company">会社概要</a>
+    </nav>
+    <a class="btn primary" href="#contact">お問い合わせ</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap heroGrid">
+      <div class="heroCard">
+        <div class="kicker">Micha-Co. / Kyoto</div>
+        <h1>地域の未来を、<br>ともに創る。</h1>
+        <p class="lead">
+          Micha株式会社は、地域に根ざした総合プラットフォーム企業です。<br>
+          不動産・飲食・教育・文化交流──それぞれを単独で終わらせず、連動させることで、
+          人々の暮らしを支え、未来を育む仕組みをつくります。
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">お問い合わせ</a>
+          <a class="btn" href="#pillars">事業内容を見る</a>
+        </div>
+      </div>
+
+      <aside class="side" aria-label="要点">
+        <h3>私たちの基本思想</h3>
+        <p>地域に拠点を持ち、人・文化・経済を循環させる「エコシステム」を設計し、実行します。</p>
+
+        <div class="pill"><span class="dot"></span><div>
+          <strong>拠点をつくる</strong><div class="small">不動産・施設運営で、人が集まる「場」を生み出す</div>
+        </div></div>
+        <div class="pill"><span class="dot"></span><div>
+          <strong>食で支える</strong><div class="small">飲食・高齢者向け食事提供で、日常と健康を守る</div>
+        </div></div>
+        <div class="pill"><span class="dot"></span><div>
+          <strong>学びを広げる</strong><div class="small">講座・資格・人材育成で、地域の担い手を育てる</div>
+        </div></div>
+        <div class="pill"><span class="dot"></span><div>
+          <strong>世界へ開く</strong><div class="small">地域活性化と国際交流で、新しい価値を呼び込む</div>
+        </div></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="vision">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>私たちが目指すもの</h2>
+        <p>個別の事業を“連動”させ、地域に持続可能な好循環を生み出します。</p>
+      </div>
+
+      <div class="grid4">
+        <div class="card">
+          <div class="badge">地域に拠点を持つ</div>
+          <h3>不動産・施設運営</h3>
+          <p>人が集まる「場」をつくり、地域の日常と活動の土台を整えます。</p>
+        </div>
+        <div class="card">
+          <div class="badge">食のインフラを担う</div>
+          <h3>飲食・高齢者食事</h3>
+          <p>飲食店運営や食事提供を通じ、健康と暮らしを支えます。</p>
+        </div>
+        <div class="card">
+          <div class="badge">学びの機会を広げる</div>
+          <h3>教育・講座・資格</h3>
+          <p>人材育成・資格取得・各種講座を通じ、地域の担い手を育てます。</p>
+        </div>
+        <div class="card">
+          <div class="badge">地域を世界へ開く</div>
+          <h3>地域活性化・国際交流</h3>
+          <p>外へ開き、新たな価値と文化を地域へ呼び込みます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pillars">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>事業の柱</h2>
+        <p>“場・食・学び・交流”を一気通貫で組み立て、地域のエコシステムをつくります。</p>
+      </div>
+
+      <div class="two">
+        <div class="card">
+          <div class="badge">不動産・施設運営</div>
+          <h3>地域の「拠点」をつくる</h3>
+          <p>企画・管理から運営まで、地域インフラとして機能する空間を提供します。</p>
+          <ul>
+            <li>不動産の売買・賃貸・管理</li>
+            <li>コミュニティ施設の企画・運営</li>
+            <li>地域拠点としての空間デザイン</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="badge">飲食・高齢者食事</div>
+          <h3>日常と健康を支える</h3>
+          <p>飲食店運営と食事提供で、地域の「食のセーフティネット」を担います。</p>
+          <ul>
+            <li>飲食店・喫茶店の運営</li>
+            <li>高齢者向け食事提供・食事会</li>
+            <li>地域食材を活かした企画</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="badge">人材育成・教育</div>
+          <h3>地域の担い手を育てる</h3>
+          <p>講座運営、資格支援、カウンセリングを通じて学びの機会を広げます。</p>
+          <ul>
+            <li>各種講座・セミナーの企画・運営</li>
+            <li>資格取得支援プログラム</li>
+            <li>教育・カウンセリング</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="badge">地域活性化・国際交流</div>
+          <h3>地域を外へ開く</h3>
+          <p>地域文化を発信し、交流と協働で新たな価値を生み出します。</p>
+          <ul>
+            <li>地域活性化の企画・実施</li>
+            <li>国際交流イベントの運営</li>
+            <li>地域文化の発信・プロモーション</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>実績と影響</h2>
+        <p>数字の背後にある、一人ひとりの暮らしを大切にします（数値は仮置き／差し替え可）。</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <p class="num">10+</p>
+          <p class="lbl">運営施設数（例）<br><span class="small">地域に根ざしたコミュニティ拠点を展開</span></p>
+        </div>
+        <div class="stat">
+          <p class="num">500+</p>
+          <p class="lbl">年間講座受講者数（例）<br><span class="small">多様な学びの機会を地域へ提供</span></p>
+        </div>
+        <div class="stat">
+          <p class="num">5,000+</p>
+          <p class="lbl">年間提供数（例）<br><span class="small">食事提供などで日常と健康を支援</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>私たちのパートナー</h2>
+        <p>自治体・企業・教育機関・NPO等と連携し、持続可能な地域づくりを進めます。</p>
+      </div>
+
+      <div class="grid4">
+        <div class="card">
+          <div class="badge">地域自治体</div>
+          <p>公共施設運営や地域活性化プロジェクトで協働し、地域政策の実現を支援します。</p>
+        </div>
+        <div class="card">
+          <div class="badge">地元企業</div>
+          <p>雇用創出や事業協力を通じて、地域経済を支える仕組みを共につくります。</p>
+        </div>
+        <div class="card">
+          <div class="badge">教育機関</div>
+          <p>学校・研修機関と連携し、若者や社会人に学びと成長の機会を提供します。</p>
+        </div>
+        <div class="card">
+          <div class="badge">NPO・市民団体</div>
+          <p>文化継承や交流イベント等、市民主導の活動を共に実現します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="company">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>会社概要</h2>
+        <p>定款に基づく基本情報（公開範囲は必要に応じて調整）。</p>
+      </div>
+
+      <div class="card">
+        <p><strong>商号：</strong>Micha株式会社（英文：Micha-Co.）</p>
+        <p><strong>本店所在地：</strong>京都府京都市</p>
+        <p><strong>公告方法：</strong>電子公告（やむを得ない場合は官報）</p>
+        <p><strong>事業：</strong>不動産・飲食・高齢者食事提供・地域活性化相談・教育/講座/資格・施設運営・イベント・国際交流 等</p>
+        <p class="small">※住所や電話番号の公開は、営業方針に合わせて後で追加でOKです。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>一緒に、地域の未来を創りませんか？</h2>
+        <p>ご相談・協業の打診・取材など、お気軽にご連絡ください。</p>
+      </div>
+
+      <div class="card">
+        <p class="small">最速公開を優先して、まずはメール窓口だけ置くのがおすすめです。</p>
+        <p><strong>連絡先：</strong><a href="mailto:info@micha-co.com">info@micha-co.com</a>（仮：後で整備）</p>
+        <p class="small">※Googleフォーム等に差し替える場合は、ここをリンクに変えるだけでOK。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="small">
+      © <span id="y"></span> Micha株式会社 / Micha-Co. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
